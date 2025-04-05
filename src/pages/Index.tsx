@@ -22,7 +22,7 @@ const Index = () => {
     
     toast({
       title: `${city.name}, ${city.state}`,
-      description: `COL Index: ${city.colIndex} | Avg. Salary: ₹${city.averageSalary.toLocaleString('en-IN')}`,
+      description: `Cost Index: ${city.colIndex} | Avg. Salary: ₹${city.averageSalary.toLocaleString('en-IN')}`,
       duration: 3000,
     });
   };
@@ -34,8 +34,8 @@ const Index = () => {
   const handleCompareButtonClick = (city: CityData) => {
     if (selectedCity === city) {
       toast({
-        title: "Cannot compare same city",
-        description: "Please select a different city to compare",
+        title: "Can't compare same city",
+        description: "Please pick a different city to compare",
         variant: "destructive",
       });
       return;
@@ -64,10 +64,10 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-              <h2 className="text-lg font-semibold mb-4">Interactive India Cost of Living Map</h2>
+              <h2 className="text-lg font-semibold mb-4">India Money Value Map</h2>
               <p className="text-sm text-gray-600 mb-4">
-                Explore the cost of living across major Indian cities. Hover over cities to see basic info,
-                click for detailed costs, and use the salary calculator to see how far your income will go.
+                See how much things cost in different Indian cities. Hover over cities for basic info,
+                click for details, and use the salary tool to see how far your money goes.
               </p>
               <div className="h-[500px]">
                 <Map onCityClick={handleCityClick} />
@@ -84,19 +84,19 @@ const Index = () => {
             <div className="mt-6 bg-white rounded-lg shadow-md p-4">
               <h2 className="text-lg font-semibold mb-2">How to Use This Tool</h2>
               <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
-                <li>Click on any city marker to view detailed cost breakdown</li>
-                <li>Enter your salary to see your purchasing power in that city</li>
-                <li>Compare two cities side-by-side to evaluate cost differences</li>
-                <li>See how much salary you'd need in one city to maintain your standard of living from another</li>
+                <li>Click any city on the map to see costs</li>
+                <li>Enter your salary to see its buying power</li>
+                <li>Compare two cities side-by-side</li>
+                <li>See how much salary you'd need in a different city</li>
               </ul>
             </div>
             
             <div className="mt-6 bg-white rounded-lg shadow-md p-4">
               <h2 className="text-lg font-semibold mb-2">About the Data</h2>
               <p className="text-sm text-gray-600">
-                The cost of living data shown is approximate and for demonstration purposes. 
-                Cost of Living Index values are relative to the national average (100).
-                Data sources include market surveys, government statistics, and economic reports.
+                Cost data shown is for example only. 
+                Cost Index values compare to the national average (100).
+                Data is from market surveys and reports.
                 Last updated: April 2025.
               </p>
             </div>
@@ -127,8 +127,8 @@ const Index = () => {
       
       <footer className="bg-white border-t border-gray-200 py-4">
         <div className="container mx-auto px-4 text-center text-sm text-gray-500">
-          <p>DesiCost Explorer &copy; 2025 | India's Premier Cost of Living Comparison Tool</p>
-          <p className="mt-1">Data is for demonstration purposes only and may not reflect actual costs.</p>
+          <p>RupaWise India &copy; 2025 | India's Money Value Comparison Tool</p>
+          <p className="mt-1">Data is for example only and may not match real costs.</p>
         </div>
       </footer>
     </div>

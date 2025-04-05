@@ -49,7 +49,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
     return (
       <div className="mt-2">
         <div className="flex justify-between text-sm mb-1">
-          <span>Purchasing Power in {city.name}</span>
+          <span>Money Value in {city.name}</span>
           <span className="font-medium">{purchasingPower.toFixed(1)}%</span>
         </div>
         <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
@@ -60,8 +60,8 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
         </div>
         <p className="text-xs text-gray-500 mt-1">
           {purchasingPower > 100 
-            ? `Your salary goes ${(purchasingPower - 100).toFixed(1)}% further than the national average here`
-            : `Your salary buys ${(100 - purchasingPower).toFixed(1)}% less than the national average here`}
+            ? `Your salary goes ${(purchasingPower - 100).toFixed(1)}% further than average here`
+            : `Your salary buys ${(100 - purchasingPower).toFixed(1)}% less than average here`}
         </p>
       </div>
     );
@@ -71,13 +71,13 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
     <div className="bg-white rounded-lg shadow-md p-4">
       <div className="flex items-center space-x-2 mb-4">
         <Calculator className="h-5 w-5 text-india-orange" />
-        <h2 className="text-lg font-semibold">Salary Calculator</h2>
+        <h2 className="text-lg font-semibold">Salary Tool</h2>
       </div>
       
       <div className="space-y-4">
         <div>
           <Label htmlFor="salary" className="text-sm font-medium">
-            Your Monthly Salary (INR)
+            Your Monthly Salary (₹)
           </Label>
           <div className="relative mt-1">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -126,6 +126,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
               <Button 
                 className="w-full mt-4 bg-india-orange hover:bg-india-orange/90 text-white"
                 onClick={handleCompareClick}
+                type="button"
               >
                 Compare {selectedCity.name} vs. {cities.find(c => c.id === compareCity)?.name}
               </Button>
@@ -135,7 +136,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
         
         {!selectedCity && (
           <div className="text-sm text-gray-500 italic">
-            Select a city on the map to calculate purchasing power and make comparisons
+            Click any city on the map to see how far your money goes
           </div>
         )}
       </div>

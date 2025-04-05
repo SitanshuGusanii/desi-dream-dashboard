@@ -11,19 +11,19 @@ const Header: React.FC = () => {
             <IndianRupee className="h-5 w-5 text-white" />
           </div>
           <h1 className="text-xl md:text-2xl font-bold">
-            <span className="text-india-navy">Desi</span>
-            <span className="text-india-orange">Cost</span>
-            <span className="text-india-green ml-1">Explorer</span>
+            <span className="text-india-navy">Rupa</span>
+            <span className="text-india-orange">Wise</span>
+            <span className="text-india-green ml-1">India</span>
           </h1>
         </div>
         
         <div className="text-center md:text-right">
           <h2 className="text-lg font-medium text-india-navy">
-            India's Cost of Living & Salary Comparison
+            India's Money Value & Salary Map
           </h2>
           <p className="text-sm text-gray-500 flex items-center justify-center md:justify-end gap-1">
             <MapPin className="h-4 w-4" />
-            Interactive comparison of major Indian cities
+            See how far your money goes in different cities
           </p>
         </div>
       </div>
