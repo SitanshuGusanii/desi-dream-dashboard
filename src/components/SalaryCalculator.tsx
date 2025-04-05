@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { IndianRupee, Calculate } from 'lucide-react';
+import { IndianRupee, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -70,7 +70,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <div className="flex items-center space-x-2 mb-4">
-        <Calculate className="h-5 w-5 text-india-orange" />
+        <Calculator className="h-5 w-5 text-india-orange" />
         <h2 className="text-lg font-semibold">Salary Calculator</h2>
       </div>
       
