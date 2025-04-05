@@ -117,7 +117,7 @@ const Map: React.FC<MapProps> = ({ onCityClick }) => {
                 stroke="#FFF"
                 strokeWidth="1"
                 filter="drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3))"
-                className="transition-transform duration-200 ease-in-out hover:scale-150"
+                className="hover:ring-2 hover:ring-white hover:ring-opacity-70 hover:brightness-110"
                 onClick={(e) => {
                   e.stopPropagation();
                   onCityClick(city);

@@ -98,11 +98,10 @@
 
 @layer utilities {
   .city-marker {
-    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
   }
   
   .city-marker:hover {
-    transform: scale(1.5);
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
     z-index: 20;
   }
@@ -125,7 +124,7 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
     pointer-events: none;
     z-index: 100;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: opacity 0.2s;
   }
   
   .text-shadow {
@@ -139,5 +138,6 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
+    will-change: auto;
   }
 }
