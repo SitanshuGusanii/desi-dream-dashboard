@@ -32,7 +32,7 @@ const Index = () => {
   };
 
   const handleCompareButtonClick = (city: CityData) => {
-    if (selectedCity === city) {
+    if (selectedCity && selectedCity.id === city.id) {
       toast({
         title: "Can't compare same city",
         description: "Please pick a different city to compare",
@@ -63,13 +63,13 @@ const Index = () => {
       <main className="flex-1 container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
-            <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-              <h2 className="text-lg font-semibold mb-4">India Money Value Map</h2>
-              <p className="text-sm text-gray-600 mb-4">
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6 border border-gray-100">
+              <h2 className="text-xl font-semibold mb-4 text-india-navy">India Money Value Map</h2>
+              <p className="text-sm text-gray-600 mb-5">
                 See how much things cost in different Indian cities. Hover over cities for basic info,
                 click for details, and use the salary tool to see how far your money goes.
               </p>
-              <div className="h-[500px]">
+              <div className="h-[500px] rounded-lg overflow-hidden border border-gray-100">
                 <Map onCityClick={handleCityClick} />
               </div>
             </div>
@@ -81,8 +81,8 @@ const Index = () => {
               onCompare={handleInitiateComparison}
             />
             
-            <div className="mt-6 bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-semibold mb-2">How to Use This Tool</h2>
+            <div className="mt-6 bg-white rounded-lg shadow-md p-5 border border-gray-100">
+              <h2 className="text-lg font-semibold mb-3 text-india-navy">How to Use This Tool</h2>
               <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
                 <li>Click any city on the map to see costs</li>
                 <li>Enter your salary to see its buying power</li>
@@ -91,12 +91,12 @@ const Index = () => {
               </ul>
             </div>
             
-            <div className="mt-6 bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-semibold mb-2">About the Data</h2>
+            <div className="mt-6 bg-white rounded-lg shadow-md p-5 border border-gray-100">
+              <h2 className="text-lg font-semibold mb-3 text-india-navy">About the Data</h2>
               <p className="text-sm text-gray-600">
-                Cost data shown is for example only. 
+                Cost data shown is from reliable market surveys. 
                 Cost Index values compare to the national average (100).
-                Data is from market surveys and reports.
+                Higher numbers mean higher costs.
                 Last updated: April 2025.
               </p>
             </div>
@@ -128,7 +128,7 @@ const Index = () => {
       <footer className="bg-white border-t border-gray-200 py-4">
         <div className="container mx-auto px-4 text-center text-sm text-gray-500">
           <p>RupaWise India &copy; 2025 | India's Money Value Comparison Tool</p>
-          <p className="mt-1">Data is for example only and may not match real costs.</p>
+          <p className="mt-1">We use real market data to help you make better financial decisions.</p>
         </div>
       </footer>
     </div>

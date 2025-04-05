@@ -47,39 +47,39 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
     else if (purchasingPower < 90) barColor = 'bg-red-400';
     
     return (
-      <div className="mt-2">
+      <div className="mt-3">
         <div className="flex justify-between text-sm mb-1">
           <span>Money Value in {city.name}</span>
           <span className="font-medium">{purchasingPower.toFixed(1)}%</span>
         </div>
-        <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+        <div className="h-2.5 w-full bg-gray-200 rounded-full overflow-hidden">
           <div 
-            className={`h-full ${barColor} rounded-full`} 
+            className={`h-full ${barColor} rounded-full transition-all duration-500 ease-in-out`} 
             style={{ width: `${Math.min(purchasingPower, 200)}%` }}
           ></div>
         </div>
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-xs text-gray-500 mt-1.5">
           {purchasingPower > 100 
-            ? `Your salary goes ${(purchasingPower - 100).toFixed(1)}% further than average here`
-            : `Your salary buys ${(100 - purchasingPower).toFixed(1)}% less than average here`}
+            ? `Your money goes ${(purchasingPower - 100).toFixed(1)}% further here`
+            : `Your money buys ${(100 - purchasingPower).toFixed(1)}% less here`}
         </p>
       </div>
     );
   };
   
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <div className="flex items-center space-x-2 mb-4">
+    <div className="bg-white rounded-lg shadow-md p-5 border border-gray-100">
+      <div className="flex items-center gap-2 mb-4">
         <Calculator className="h-5 w-5 text-india-orange" />
-        <h2 className="text-lg font-semibold">Salary Tool</h2>
+        <h2 className="text-lg font-semibold text-india-navy">Salary Tool</h2>
       </div>
       
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div>
-          <Label htmlFor="salary" className="text-sm font-medium">
+          <Label htmlFor="salary" className="text-sm font-medium mb-1.5 block">
             Your Monthly Salary (₹)
           </Label>
-          <div className="relative mt-1">
+          <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <IndianRupee className="h-4 w-4 text-gray-400" />
             </div>
@@ -88,7 +88,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
               type="text"
               value={salary}
               onChange={handleSalaryChange}
-              className="pl-10"
+              className="pl-10 border-gray-300 focus:border-india-orange focus:ring-india-orange"
               placeholder="Enter your monthly salary"
             />
           </div>
@@ -98,15 +98,15 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
         
         {selectedCity && (
           <div>
-            <Label htmlFor="compareCity" className="text-sm font-medium">
+            <Label htmlFor="compareCity" className="text-sm font-medium mb-1.5 block">
               Compare with Another City
             </Label>
-            <div className="mt-1">
+            <div>
               <select
                 id="compareCity"
                 value={compareCity}
                 onChange={(e) => setCompareCity(e.target.value)}
-                className="w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-india-orange focus:border-india-orange"
+                className="w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-india-orange focus:border-india-orange transition-all duration-200"
               >
                 <option value="">Select a city to compare</option>
                 {cities
@@ -124,7 +124,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
             
             {compareCity && (
               <Button 
-                className="w-full mt-4 bg-india-orange hover:bg-india-orange/90 text-white"
+                className="w-full mt-4 bg-india-orange hover:bg-india-orange/90 text-white shadow-sm transition-all duration-200 transform hover:translate-y-[-1px]"
                 onClick={handleCompareClick}
                 type="button"
               >
@@ -135,7 +135,7 @@ const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ selectedCity, onCom
         )}
         
         {!selectedCity && (
-          <div className="text-sm text-gray-500 italic">
+          <div className="text-sm text-gray-500 italic p-3 bg-gray-50 rounded-md">
             Click any city on the map to see how far your money goes
           </div>
         )}

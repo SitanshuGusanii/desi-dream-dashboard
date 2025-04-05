@@ -4,10 +4,10 @@ import { IndianRupee, MapPin } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center gap-2 mb-4 md:mb-0">
-          <div className="bg-india-orange p-2 rounded-full">
+          <div className="bg-india-orange p-2 rounded-full shadow-md">
             <IndianRupee className="h-5 w-5 text-white" />
           </div>
           <h1 className="text-xl md:text-2xl font-bold">
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           </h2>
           <p className="text-sm text-gray-500 flex items-center justify-center md:justify-end gap-1">
             <MapPin className="h-4 w-4" />
-            See how far your money goes in different cities
+            See how your money compares across cities
           </p>
         </div>
       </div>
